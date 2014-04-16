@@ -1,0 +1,7 @@
+There are a few principal functions reading data into R.
+read.table, read.csv, for reading tabular data
+readLines, for reading lines of a text ﬁle
+source, for reading in R code ﬁles (inverse of dump)
+dget, for reading in R code ﬁles (inverse of dput)
+load, for reading in saved workspaces
+unserialize, for reading single R objects in binary form
