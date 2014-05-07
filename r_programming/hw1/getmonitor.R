@@ -9,10 +9,13 @@ getmonitor <- function(id, directory, summarize = FALSE) {
   ## 'summarize' is a logical indicating whether a summary of
   ## the data should be printed to the console; the default is
   ## FALSE
+  
+  # id = 5
+  # directory = 'specdata'
     
-  idstr = sprintf("%03.0f", as.numeric(id)) 
-  filename = paste(c('./',directory,'/',idstr,'.csv'), collapse = '')
-  data = read.csv(filename)
+  idstr <- sprintf("%03.0f", as.numeric(id)) 
+  filename <- paste(c('./',directory,'/',idstr,'.csv'), collapse = '')
+  data <- read.csv(filename)
   
   if (summarize == TRUE) {
     print(summary(data))
