@@ -1,0 +1,10 @@
+# Ignore 
+.DS_Store
+.Rhistory
+*.RData
+.Rapp.history
+.RHistory
+.rHistory
+.#*
+*~
+*#
