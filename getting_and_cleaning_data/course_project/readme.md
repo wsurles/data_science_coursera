@@ -13,6 +13,7 @@
 6. Create a second data set with the average of each variable (feature) for each activity and each subject. 
 
 ## Cook Book
+For exact recipe to create data_tidy.txt see run_analysi.R provided in the repo
 
 ### Data Set used
 UCL Machine Learning Repository
