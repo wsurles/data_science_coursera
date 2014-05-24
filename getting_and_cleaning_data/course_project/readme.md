@@ -1,7 +1,7 @@
 # Getting and Cleaning Data Course Project
 
 ## Study Design
-------------------
+=======
 
 ## Steps to create a tidy summarized dataset 
 #### 2-6 occur in run_analysis.R
@@ -14,7 +14,7 @@
 6. Create a second data set with the average of each variable (feature) for each activity and each subject. 
 
 ## Cook Book
-----------------------
+=======
 ## Data Set used
 UCL Machine Learning Repository
 Human Activity Recognition Using Smartphones Data Set 
