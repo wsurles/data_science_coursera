@@ -1,9 +1,8 @@
 # Getting and Cleaning Data Course Project
 
 ## Study Design
-=======
 
-## Steps to create a tidy summarized dataset 
+### Steps to create a tidy summarized dataset 
 #### 2-6 occur in run_analysis.R
 
 1. Get data smartphone activity data from UCI website
@@ -14,16 +13,16 @@
 6. Create a second data set with the average of each variable (feature) for each activity and each subject. 
 
 ## Cook Book
-=======
-## Data Set used
+
+### Data Set used
 UCL Machine Learning Repository
 Human Activity Recognition Using Smartphones Data Set 
 http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 
-## Data File downloaded
+### Data File downloaded
 https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip 
 
-## Description of data set from website. 
+### Description of data set from website. 
 The features selected for this database come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals (prefix 't' to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz. 
 
 Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals (tBodyAccJerk-XYZ and tBodyGyroJerk-XYZ). Also the magnitude of these three-dimensional signals were calculated using the Euclidean norm (tBodyAccMag, tGravityAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag). 
@@ -57,7 +56,7 @@ The set of variables that were estimated from these signals that I am interested
 mean(): Mean value
 std(): Standard deviation
 
-## Files used
+### Files used
 
 * UCI HAR Dataset/test/X_test.txt
 * UCI HAR Dataset/test/y_test.txt
@@ -68,18 +67,18 @@ std(): Standard deviation
 * UCI HAR Dataset/features.txt
 * UCI HAR Dataset/activity_labels.txt
 
-## Combined data set diagram
+### Combined data set diagram
 
 ![image1](image_combined_data.png "Combined Data Set")
 
-## Combine and clean data process
+### Combine and clean data process
 
 * rbind and cbind were used to combine the datasets
 * column names for X data sets are from features.txt
 * grep was used to extract only mean and std variables 
 * extra characters were removed from the names
 
-## Structure of combined and cleaned data set
+### Structure of combined and cleaned data set
 
 ```S
 'data.frame':	10299 obs. of  68 variables:
@@ -153,13 +152,13 @@ std(): Standard deviation
  $ fBodyBodyGyroJerkMag-std : num  -0.991 -0.996 -0.995 -0.995 -0.995 ...
 ```
 
-## Summarise Data Process
+### Summarise Data Process
 
 * Melt data set with subject and activity as ids. Uses melt from reshape2 package
 * Take the mean of values by subject, activity, and variable. Uses ddply from plyr package
 * write the data set to a file. Uses write.table
 
-## Structure of the final summarized data set
+### Structure of the final summarized data set
 ```S
 'data.frame':	2310 obs. of  4 variables:
  $ subject : int  1 1 1 1 1 1 1 1 1 1 ...
@@ -168,7 +167,7 @@ std(): Standard deviation
  $ Mean    : num  0.2657 -0.0183 -0.1078 0.7449 -0.0826 ...
 ```
 
-## First rows of the final summarized data set
+### First rows of the final summarized data set
 ```S
    subject activity           variable        Mean
 1       1  WALKING    tBodyAcc-mean-X  0.26569692
