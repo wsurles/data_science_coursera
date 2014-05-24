@@ -1,6 +1,6 @@
 # Getting and Cleaning Data Course Project
 
-run_analysis.R implements the following steps to create a tidy dataset:
+## Steps to create a tidy dataset in run_analysis.R 
 
 1. Merges the training and the test sets for X, y, and subject
 2. Appropriately labels each measurement. X is labeled with features.txt
@@ -10,22 +10,22 @@ run_analysis.R implements the following steps to create a tidy dataset:
 
 ## Files used
 
-UCI HAR Dataset/test/X_test.txt
-UCI HAR Dataset/test/y_test.txt
-UCI HAR Dataset/test/subject_test.txt
+* UCI HAR Dataset/test/X_test.txt
+* UCI HAR Dataset/test/y_test.txt
+* UCI HAR Dataset/test/subject_test.txt
 
-UCI HAR Dataset/train/X_train.txt
-UCI HAR Dataset/train/y_train.txt
-UCI HAR Dataset/train/subject_train.txt
+* UCI HAR Dataset/train/X_train.txt
+* UCI HAR Dataset/train/y_train.txt
+* UCI HAR Dataset/train/subject_train.txt
 
-UCI HAR Dataset/features.txt
-UCI HAR Dataset/activity_labels.txt
+* UCI HAR Dataset/features.txt
+* UCI HAR Dataset/activity_labels.txt
 
 ## Combined data set looks like this 
 
 ![image1](image_combined_data.png "Combined Data Set")
 
-## structure of combined data set
+## Structure of combined data set
 
 ```S
 'data.frame':	10299 obs. of  68 variables:
@@ -97,4 +97,23 @@ UCI HAR Dataset/activity_labels.txt
  $ fBodyBodyAccJerkMag-std  : num  -0.994 -0.992 -0.991 -0.992 -0.994 ...
  $ fBodyBodyGyroMag-std     : num  -0.961 -0.983 -0.986 -0.988 -0.989 ...
  $ fBodyBodyGyroJerkMag-std : num  -0.991 -0.996 -0.995 -0.995 -0.995 ...
+```
+
+## Structure of the final summarized data set
+```S
+'data.frame':	2310 obs. of  4 variables:
+ $ subject : int  1 1 1 1 1 1 1 1 1 1 ...
+ $ activity: Factor w/ 6 levels "LAYING","SITTING",..: 4 4 4 4 4 4 4 4 4 4 ...
+ $ variable: Factor w/ 66 levels "tBodyAcc-mean-X",..: 1 2 3 4 5 6 7 8 9 10 ...
+ $ Mean    : num  0.2657 -0.0183 -0.1078 0.7449 -0.0826 ...
+```
+## First rows of the final summarized data set
+```S
+   subject activity           variable        Mean
+1       1  WALKING    tBodyAcc-mean-X  0.26569692
+2       1  WALKING    tBodyAcc-mean-Y -0.01829817
+3       1  WALKING    tBodyAcc-mean-Z -0.10784573
+4       1  WALKING tGravityAcc-mean-X  0.74486741
+5       1  WALKING tGravityAcc-mean-Y -0.08255626
+6       1  WALKING tGravityAcc-mean-Z  0.07233987
 ```
