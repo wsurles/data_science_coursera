@@ -70,7 +70,7 @@ std(): Standard deviation
 
 ### Combined data set diagram
 
-![image1](image_combined_data.png "Combined Data Set")
+![image1](images/image_combined_data.png "Combined Data Set")
 
 ### Combine and clean data process
 
