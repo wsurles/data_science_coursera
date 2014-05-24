@@ -1,12 +1,60 @@
 # Getting and Cleaning Data Course Project
 
-## Steps to create a tidy dataset in run_analysis.R 
+## Study Design
+------
 
-1. Merges the training and the test sets for X, y, and subject
-2. Appropriately labels each measurement. X is labeled with features.txt
-3. Extracts the mean and standard deviation for each measurement
-4. Adds activity names to the data set
-5. Creates a second data set with the average of each variable (feature) for each activity and each subject. 
+## Steps to create a tidy summarized dataset [2-6 occur in run_analysis.R]
+
+1. Get data smartphone activity data from UCI website
+2. Merge the training and the test sets for X, y, and subject
+3. Appropriately label each measurement. X is labeled with features.txt
+4. Extract the mean and standard deviation for each measurement
+5. Adds activity names to the data set
+6. Create a second data set with the average of each variable (feature) for each activity and each subject. 
+
+## Cook Book
+------
+## Data Set used
+UCL Machine Learning Repository
+Human Activity Recognition Using Smartphones Data Set 
+http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+
+## Data File downloaded
+https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip 
+
+## Description of data set from website. 
+The features selected for this database come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals (prefix 't' to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz. 
+
+Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals (tBodyAccJerk-XYZ and tBodyGyroJerk-XYZ). Also the magnitude of these three-dimensional signals were calculated using the Euclidean norm (tBodyAccMag, tGravityAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag). 
+
+Finally a Fast Fourier Transform (FFT) was applied to some of these signals producing fBodyAcc-XYZ, fBodyAccJerk-XYZ, fBodyGyro-XYZ, fBodyAccJerkMag, fBodyGyroMag, fBodyGyroJerkMag. (Note the 'f' to indicate frequency domain signals). 
+
+These signals were used to estimate variables of the feature vector for each pattern:  
+'-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.
+
+tBodyAcc-XYZ
+tGravityAcc-XYZ
+tBodyAccJerk-XYZ
+tBodyGyro-XYZ
+tBodyGyroJerk-XYZ
+tBodyAccMag
+tGravityAccMag
+tBodyAccJerkMag
+tBodyGyroMag
+tBodyGyroJerkMag
+fBodyAcc-XYZ
+fBodyAccJerk-XYZ
+fBodyGyro-XYZ
+fBodyAccMag
+fBodyAccJerkMag
+fBodyGyroMag
+fBodyGyroJerkMag
+
+
+The set of variables that were estimated from these signals that I am interested in are:
+
+mean(): Mean value
+std(): Standard deviation
 
 ## Files used
 
@@ -19,11 +67,18 @@
 * UCI HAR Dataset/features.txt
 * UCI HAR Dataset/activity_labels.txt
 
-## Combined data set looks like this 
+## Combined data set diagram
 
 ![image1](image_combined_data.png "Combined Data Set")
 
-## Structure of combined data set
+## Combine and clean data process
+
+* rbind and cbind were used to combine the datasets
+* column names for X data sets are from features.txt
+* grep was used to extract only mean and std variables 
+* extra characters were removed from the names
+
+## Structure of combined and cleaned data set
 
 ```S
 'data.frame':	10299 obs. of  68 variables:
@@ -97,6 +152,12 @@
  $ fBodyBodyGyroJerkMag-std : num  -0.991 -0.996 -0.995 -0.995 -0.995 ...
 ```
 
+## Summarise Data Process
+
+* Melt data set with subject and activity as ids. Uses melt from reshape2 package
+* Take the mean of values by subject, activity, and variable. Uses ddply from plyr package
+* write the data set to a file. Uses write.table
+
 ## Structure of the final summarized data set
 ```S
 'data.frame':	2310 obs. of  4 variables:
@@ -105,6 +166,7 @@
  $ variable: Factor w/ 66 levels "tBodyAcc-mean-X",..: 1 2 3 4 5 6 7 8 9 10 ...
  $ Mean    : num  0.2657 -0.0183 -0.1078 0.7449 -0.0826 ...
 ```
+
 ## First rows of the final summarized data set
 ```S
    subject activity           variable        Mean
@@ -114,4 +176,3 @@
 4       1  WALKING tGravityAcc-mean-X  0.74486741
 5       1  WALKING tGravityAcc-mean-Y -0.08255626
 6       1  WALKING tGravityAcc-mean-Z  0.07233987
-```
