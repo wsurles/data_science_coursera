@@ -27,5 +27,28 @@ df <- as.data.frame(t)
 library(plyr)
 df2 <- arrange(df, desc(Freq))
 
+##|-----------------
+##| Reshaping Data
+##|-----------------
+library(reshape2)
+head(mtcars)
+
+##| Melting Data frame
+mtcars$carname <- rownames(mtcars)
+carMelt <- melt(mtcars, 
+                id=c("carname","gear","cyl"), 
+                measure.vars = c("mpg","hp"))
+
+head(carMelt, 3)
+tail(carMelt, 3)
+
+table(carMelt$variable)
+
+cylData <- dcast(carMelt, cyl ~ variable)
+cylData <- dcast(carMelt, cyl ~ variable, mean)
+
+
+
+
 
 
