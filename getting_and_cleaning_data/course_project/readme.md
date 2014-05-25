@@ -154,7 +154,7 @@ std(): Standard deviation
 ```
 
 ### Table of measurements by subject and activity
-For example, Subject 1 has 95 measurements for the 'walking' activity in each of the 66 variable extracted.
+For example, Subject 1 has 95 measurements for the 'walking' activity in each of the 66 variables extracted.
 ```S
      WALKING WALKING_UPSTAIRG WALKING_DOWNSTAIRS SITTING STANDING LAYING
   1       95               53                 49      47       53     50
@@ -215,7 +215,7 @@ For example, Subject 1 has 95 measurements for the 'walking' activity in each of
 ```
 
 ### Table of measurements by subject and activity for summarized data set
-Each subject has one mean for each variable for each activity. I extracted 66 variable.
+Each subject has one mean for each variable for each activity. I extracted 66 variables.
 ```S
      WALKING WALKING_UPSTAIRG WALKING_DOWNSTAIRS SITTING STANDING LAYING
   1       66               66                 66      66       66     66
