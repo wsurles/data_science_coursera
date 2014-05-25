@@ -84,7 +84,7 @@ std(): Standard deviation
 ```S
 'data.frame':	10299 obs. of  68 variables:
  $ subject                  : int  1 1 1 1 1 1 1 1 1 1 ...
- $ activity                 : Factor w/ 6 levels "LAYING","SITTING",..: 4 4 4 4 4 4 4 4 4 4 ...
+ $ activity                 : Factor w/ 6 levels "WALKING","WALKING_UPSTAIRG",..: 5 5 5 5 5 5 5 5 5 5 ...
  $ tBodyAcc-mean-X          : num  0.289 0.278 0.28 0.279 0.277 ...
  $ tBodyAcc-mean-Y          : num  -0.0203 -0.0164 -0.0195 -0.0262 -0.0166 ...
  $ tBodyAcc-mean-Z          : num  -0.133 -0.124 -0.113 -0.123 -0.115 ...
@@ -153,6 +153,41 @@ std(): Standard deviation
  $ fBodyBodyGyroJerkMag-std : num  -0.991 -0.996 -0.995 -0.995 -0.995 ...
 ```
 
+### Table of measurements by subject and activity
+For example, Subject 1 has 95 measurements for the 'walking' activity in each of the 66 variable extracted.
+```S
+     WALKING WALKING_UPSTAIRG WALKING_DOWNSTAIRS SITTING STANDING LAYING
+  1       95               53                 49      47       53     50
+  2       59               48                 47      46       54     48
+  3       58               59                 49      52       61     62
+  4       60               52                 45      50       56     54
+  5       56               47                 47      44       56     52
+  6       57               51                 48      55       57     57
+  7       57               51                 47      48       53     52
+  8       48               41                 38      46       54     54
+  9       52               49                 42      50       45     50
+  10      53               47                 38      54       44     58
+  11      59               54                 46      53       47     57
+  12      50               52                 46      51       61     60
+  13      57               55                 47      49       57     62
+  14      59               54                 45      54       60     51
+  15      54               48                 42      59       53     72
+  16      51               51                 47      69       78     70
+  17      61               48                 46      64       78     71
+  18      56               58                 55      57       73     65
+  19      52               40                 39      73       73     83
+  20      51               51                 45      66       73     68
+  21      52               47                 45      85       89     90
+  22      46               42                 36      62       63     72
+  23      59               51                 54      68       68     72
+  24      58               59                 55      68       69     72
+  25      74               65                 58      65       74     73
+  26      59               55                 50      78       74     76
+  27      57               51                 44      70       80     74
+  28      54               51                 46      72       79     80
+  29      53               49                 48      60       65     69
+  30      65               65                 62      62       59     70
+  ```
 ### Summarise Data Process
 
 * Melt data set with subject and activity as ids. Uses melt from reshape2 package
@@ -161,19 +196,56 @@ std(): Standard deviation
 
 ### Structure of the final summarized data set
 ```S
-'data.frame':	2310 obs. of  4 variables:
+'data.frame':	11880 obs. of  4 variables:
  $ subject : int  1 1 1 1 1 1 1 1 1 1 ...
- $ activity: Factor w/ 6 levels "LAYING","SITTING",..: 4 4 4 4 4 4 4 4 4 4 ...
+ $ activity: Factor w/ 6 levels "WALKING","WALKING_UPSTAIRG",..: 1 1 1 1 1 1 1 1 1 1 ...
  $ variable: Factor w/ 66 levels "tBodyAcc-mean-X",..: 1 2 3 4 5 6 7 8 9 10 ...
- $ Mean    : num  0.2657 -0.0183 -0.1078 0.7449 -0.0826 ...
+ $ Mean    : num  0.2773 -0.0174 -0.1111 0.9352 -0.2822 ...
 ```
 
 ### First rows of the final summarized data set
 ```S
-   subject activity           variable        Mean
-1       1  WALKING    tBodyAcc-mean-X  0.26569692
-2       1  WALKING    tBodyAcc-mean-Y -0.01829817
-3       1  WALKING    tBodyAcc-mean-Z -0.10784573
-4       1  WALKING tGravityAcc-mean-X  0.74486741
-5       1  WALKING tGravityAcc-mean-Y -0.08255626
-6       1  WALKING tGravityAcc-mean-Z  0.07233987
+  subject activity           variable        Mean
+1       1  WALKING    tBodyAcc-mean-X  0.27733076
+2       1  WALKING    tBodyAcc-mean-Y -0.01738382
+3       1  WALKING    tBodyAcc-mean-Z -0.11114810
+4       1  WALKING tGravityAcc-mean-X  0.93522320
+5       1  WALKING tGravityAcc-mean-Y -0.28216502
+6       1  WALKING tGravityAcc-mean-Z -0.06810286
+```
+
+### Table of measurements by subject and activity for summarized data set
+Each subject has one mean for each variable for each activity. I extracted 66 variable.
+```S
+     WALKING WALKING_UPSTAIRG WALKING_DOWNSTAIRS SITTING STANDING LAYING
+  1       66               66                 66      66       66     66
+  2       66               66                 66      66       66     66
+  3       66               66                 66      66       66     66
+  4       66               66                 66      66       66     66
+  5       66               66                 66      66       66     66
+  6       66               66                 66      66       66     66
+  7       66               66                 66      66       66     66
+  8       66               66                 66      66       66     66
+  9       66               66                 66      66       66     66
+  10      66               66                 66      66       66     66
+  11      66               66                 66      66       66     66
+  12      66               66                 66      66       66     66
+  13      66               66                 66      66       66     66
+  14      66               66                 66      66       66     66
+  15      66               66                 66      66       66     66
+  16      66               66                 66      66       66     66
+  17      66               66                 66      66       66     66
+  18      66               66                 66      66       66     66
+  19      66               66                 66      66       66     66
+  20      66               66                 66      66       66     66
+  21      66               66                 66      66       66     66
+  22      66               66                 66      66       66     66
+  23      66               66                 66      66       66     66
+  24      66               66                 66      66       66     66
+  25      66               66                 66      66       66     66
+  26      66               66                 66      66       66     66
+  27      66               66                 66      66       66     66
+  28      66               66                 66      66       66     66
+  29      66               66                 66      66       66     66
+  30      66               66                 66      66       66     66
+  ```
