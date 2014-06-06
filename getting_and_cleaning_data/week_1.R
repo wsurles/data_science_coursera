@@ -113,7 +113,7 @@ tables()
 DT[2,]
 DT[DT$y=="a"]
 DT[c(2,3)]
-DT[,c(2,3)]
+DT[,c(2,3)] ## expressions go after the comma
 
 ## expressions
 {
@@ -122,23 +122,28 @@ DT[,c(2,3)]
 }
 k = {print(10); 5}
 print(k)
+
+## Calculating values for variables with expressions
 DT[,list(mean(x), sum(z))]
 DT[,table(y)]
 
 ## Adding columns
 DT[,w:=z^2]
 
-## Tables stay linked
+## note: Tables stay linked
 DT2 <- DT
 DT[, y:= 2]
 
 head(DT, n=3)
-head(DT2, n=3)
+head(DT2, n=3) ## careful
 ## both have y = 2
 
 ## multiple operations
-DT[,m:= {tmp <- (x+z); log2(tmp+5)}]
+DT[,m:= {tmp <- (x+z); 
+         log2(tmp+5)}]
 
+DT[,n:= {tmp <- (x+z); 
+         (tmp+as.numeric(y))}]
 ## plyr like operations
 DT[,a:=x>0]
 DT[,b:= mean(x+w), by=a]
